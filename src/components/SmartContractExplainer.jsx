@@ -15,10 +15,11 @@ function SmartContractExplainer() {
     }
 
     setIsLoading(true);
-    setSummary(null); // Clear the previous summary
+    setSummary(null);
     setError("");
 
     try {
+      // This is the real API call to your backend
       const response = await fetch('/api/explainContract', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -48,7 +49,9 @@ function SmartContractExplainer() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6-4a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <h2 className="ml-4 text-2xl font-bold text-white">Smart Contract Analyzer</h2>
+        <h2 className="ml-4 text-2xl font-bold text-white">
+          Smart Contract Analyzer
+        </h2>
       </div>
 
       <input
@@ -76,7 +79,6 @@ function SmartContractExplainer() {
 
       {error && <p className="mt-4 text-red-400 text-center">{error}</p>}
 
-      {/* This condition ensures the old summary doesn't show while loading */}
       {!isLoading && summary && (
         <div className="mt-8 p-6 bg-gray-700 bg-opacity-50 rounded-lg space-y-5">
           <div>

@@ -1,6 +1,5 @@
 // api/explain.js
 
-// This function is now exported to be used by our Express server
 export default async function explainHandler(req, res) {
     const { transaction } = req.body;
   
@@ -11,14 +10,20 @@ export default async function explainHandler(req, res) {
     const GEMINI_API_KEY = process.env.VITE_GEMINI_API_KEY;
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
   
+    // --- IMPROVED PROMPT ---
     const prompt = `
       You are a world-class blockchain security expert named ClaritySign.
       Your job is to explain a raw transaction in simple, human-readable terms.
       Analyze the following transaction and provide a clear, concise summary and a risk assessment.
+
+      Follow these risk level guidelines STRICTLY:
+      - **Low Risk**: Standard, common transactions like simple ETH/token transfers or swaps on well-known platforms. Do NOT assign medium risk just because information like the sender is missing. Assume it's a standard user interaction.
+      - **Medium Risk**: Transactions that ask for broad permissions but aren't necessarily malicious, like a standard "permit" signature or interacting with a new, unverified contract. Advise caution.
+      - **High Risk**: Transactions that are highly suspicious, such as asking for "unlimited approval" of all tokens, transactions with known scam addresses, or signatures that grant control over the entire wallet.
       
       Respond ONLY with a JSON object with two keys:
       1. "explanation": A plain English summary of what the transaction does.
-      2. "risk": A risk analysis, starting with a risk level (e.g., "High Risk," "Low Risk," "Informational").
+      2. "risk": Your risk analysis, starting with the risk level.
       
       Transaction to analyze: 
       ${JSON.stringify(transaction)}
