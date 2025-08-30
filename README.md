@@ -1,12 +1,34 @@
-# React + Vite
+# ClaritySign
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ClaritySign is a blockchain transaction and smart contract analysis platform that leverages AI to provide users with clear, human-readable explanations and risk assessments of their blockchain activities. By integrating wallet connections, ClaritySign empowers users to understand the implications of their on-chain actions before proceeding.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **AI-Powered Transaction Analysis**: Submit raw blockchain transactions to receive detailed explanations and risk assessments.
+- **Smart Contract Code Review**: Analyze verified smart contract source code to identify potential risks and vulnerabilities.
+- **Wallet Integration**: Connect your wallet to fetch and analyze your transaction history directly.
+- **Risk Level Classification**: Transactions are categorized into Low, Medium, or High risk based on predefined criteria.
+- **User-Friendly Interface**: Interact with a clean and intuitive frontend built with React and Vite.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- **Frontend**: React, Vite, Tailwind CSS
+- **Backend**: Node.js, Express
+- **Blockchain Interaction**: Ethers.js
+- **AI Integration**: Google Gemini API for natural language processing
+- **Smart Contract Analysis**: Etherscan API for fetching verified source code
+
+---
+
+## Installation
+
+### Backend
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AkshatChauhan7/ClaritySign.git
+   cd ClaritySign/backend
