@@ -1,25 +1,18 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 
-function WalletConnector() {
-  const [account, setAccount] = useState(null);
+function WalletConnector({ account, setAccount }) {
   const [error, setError] = useState('');
 
   const connectWallet = async () => {
-    setError(''); // Clear previous errors
-
-    console.log("Checking for window.ethereum:", window.ethereum);
-    // Check if MetaMask is installed
+    setError('');
     if (typeof window.ethereum === 'undefined') {
       setError("MetaMask is not installed. Please install the extension and refresh the page.");
       return;
     }
 
     try {
-      // Create a new provider
       const provider = new ethers.BrowserProvider(window.ethereum);
-      
-      // Request account access
       const accounts = await provider.send("eth_requestAccounts", []);
       
       if (accounts.length > 0) {

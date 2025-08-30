@@ -1,9 +1,8 @@
-// src/components/Header.jsx
 import React from "react";
 import { Github } from 'lucide-react';
-import WalletConnector from "./WalletConnector"; // Import the new component
+import WalletConnector from "./WalletConnector";
 
-function Header() {
+function Header({ account, setAccount }) {
   return (
     <header className="bg-cyber-bg/50 backdrop-blur-sm border-b border-cyber-cyan/20 sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -19,7 +18,7 @@ function Header() {
           >
             <Github size={24} />
           </a>
-          <WalletConnector /> {/* Add the wallet connector here */}
+          <WalletConnector account={account} setAccount={setAccount} />
         </div>
       </div>
     </header>
