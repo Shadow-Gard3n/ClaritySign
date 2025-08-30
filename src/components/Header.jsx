@@ -1,6 +1,7 @@
 // src/components/Header.jsx
 import React from "react";
-import { Github } from 'lucide-react'; // Import the Github icon
+import { Github } from 'lucide-react';
+import WalletConnector from "./WalletConnector"; // Import the new component
 
 function Header() {
   return (
@@ -9,14 +10,17 @@ function Header() {
         <h1 className="text-2xl font-bold text-cyber-cyan">
           ClaritySign AI
         </h1>
-        <a
-          href="https://github.com/akshatchauhan7/claritysign"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-cyber-blue hover:text-cyber-cyan transition-colors"
-        >
-          <Github size={24} />
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/akshatchauhan7/claritysign"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyber-blue hover:text-cyber-cyan transition-colors"
+          >
+            <Github size={24} />
+          </a>
+          <WalletConnector /> {/* Add the wallet connector here */}
+        </div>
       </div>
     </header>
   );
