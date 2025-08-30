@@ -4,16 +4,16 @@ import { Github } from 'lucide-react'; // Import the Github icon
 
 function Header() {
   return (
-    <header className="bg-gray-900/50 backdrop-blur-sm border-b border-gray-700/50 sticky top-0 z-50">
+    <header className="bg-cyber-bg/50 backdrop-blur-sm border-b border-cyber-cyan/20 sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">
+        <h1 className="text-2xl font-bold text-cyber-cyan">
           ClaritySign AI
         </h1>
-        <a 
-          href="https://github.com/akshatchauhan7/claritysign" 
-          target="_blank" 
+        <a
+          href="https://github.com/akshatchauhan7/claritysign"
+          target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition-colors"
+          className="text-cyber-blue hover:text-cyber-cyan transition-colors"
         >
           <Github size={24} />
         </a>
